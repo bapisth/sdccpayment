@@ -1,0 +1,2 @@
+INSERT INTO org_user (mobile, name, password, username)VALUES('9438437865',  'Techsofin Administrator',  '$2a$10$nLNSsLS78F3iAXeQQO5oduvj8864ssI.JZPmn3ZX7N0Ha/aEqEw3i',  'admin');
+INSERT INTO org_user_roles(active, name, user_id) VALUES (TRUE , 'ADMIN', 1);

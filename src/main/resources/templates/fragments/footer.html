@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<th:block th:fragment="footer">
+    <footer id="sticky-footer" class="py-4 bg-dark text-white-50 flex-shrink: none;">
+        <div class="container">
+            <p>
+                &copy; techsofin.com
+                <span sec:authorize="isAuthenticated()">
+                    | Logged user: <span sec:authentication="name"></span> |
+                    Roles: <span sec:authentication="principal.authorities"></span> |
+                    <a th:href="@{/logout}">Sign Out</a>
+                </span>
+            </p>
+        </div>
+    </footer>
+
+</th:block>
