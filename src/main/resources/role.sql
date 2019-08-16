@@ -1,0 +1,1 @@
+INSERT INTO public.org_role(created_on, description, last_modified, name) VALUES (now(), 'Super User', now(), 'super_user');

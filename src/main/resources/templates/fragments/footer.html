@@ -1,9 +1,9 @@
-<!DOCTYPE HTML>
+<!--<!DOCTYPE HTML>
 <th:block th:fragment="footer">
     <footer id="sticky-footer" class="py-4 bg-dark text-white-50 flex-shrink: none;">
         <div class="container">
             <p>
-                &copy; techsofin.com
+                &copy;test.com
                 <span sec:authorize="isAuthenticated()">
                     | Logged user: <span sec:authentication="name"></span> |
                     Roles: <span sec:authentication="principal.authorities"></span> |
@@ -13,4 +13,23 @@
         </div>
     </footer>
 
-</th:block>
+</th:block>-->
+
+<!-- Footer -->
+<footer th:fragment="footer" class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+    <!-- /.container -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="webjars/jquery/3.4.1/jquery.min.js" th:src="@{webjars/jquery/3.4.1/jquery.min.js}" ></script>
+    <script src="webjars/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="webjars/jquery-easing/1.4.1/jquery.easing.min.js" th:src="@{/webjars/jquery-easing/1.4.1/jquery.easing.min.js}"></script>
+
+    <!-- Custom JavaScript for this theme -->
+    <script th:src="@{/js/scrolling-nav.js}"></script>
+</footer>
+
+

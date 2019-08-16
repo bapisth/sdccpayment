@@ -22,6 +22,8 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     @Autowired
     private SDCCUserDetailService userDetailsService;
 
+
+
     @Bean
     public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
@@ -35,6 +37,11 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         http.csrf().disable().headers().frameOptions().disable();
         http
                 .authorizeRequests()
+                .antMatchers("/webjars/**").permitAll()
+                .antMatchers("/js/**").permitAll()
+                .antMatchers("/css/**").permitAll()
+                //.antMatchers("/css/skins/*").permitAll()
+                .antMatchers("/fonts/**").permitAll()
                 .antMatchers("/").authenticated()
                 .anyRequest().authenticated()
                 .and()
@@ -45,12 +52,13 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                     .invalidateHttpSession(true)
                     .clearAuthentication(true)
                     .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                    .logoutSuccessUrl("/logout-success").permitAll();
+                    .logoutSuccessUrl("/login")
+                .permitAll();
 
     }
 
-    /*@Override
+    @Override
     public void configure(org.springframework.security.config.annotation.web.builders.WebSecurity web) throws Exception {
-        web.ignoring().antMatchers( "/static/**", "/css/**", "/js/**", "/images/**");
-    }*/
+        //web.ignoring().antMatchers("/resources/**").anyRequest();
+    }
 }

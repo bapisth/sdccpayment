@@ -1,15 +1,14 @@
-<!DOCTYPE HTML>
-<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/main_layout}">
+<!--/* Thymeleaf templating engine, Each token will be replaced by their respective titles in the resulting page. */-->
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{fragments/main_layout}">
+
 <head>
-    <title>Spring Boot Thymeleaf + Spring Security</title>
+    <meta charset="UTF-8"/>
+    <title>Home</title>
+    <link rel="icon" href="#" th:href="@{/img/favicon.ico}" type="image/x-icon"/>
 </head>
 <body>
-<div layout:fragment="content" class="container">
-
-    <div class="jumbotron">
-        <h1>Home Page</h1>
-        <h1 th:text="${companyName}"></h1>
-    </div>
+<div layout:fragment="content">
+    <h1>Test Home</h1>
 </div>
 </body>
 </html>

@@ -33,7 +33,7 @@ public class SDCCUserDetails implements UserDetails {
 
         List<UserRole> userRoles = this.user.getUserRoles();
         if (Objects.nonNull(userRoles)) {
-            grantedAuthorities = userRoles.stream().map(userRole -> new SimpleGrantedAuthority(userRole.getName())).collect(Collectors.toList());
+            grantedAuthorities = userRoles.stream().map(userRole -> new SimpleGrantedAuthority(userRole.getRole().getName())).collect(Collectors.toList());
         }
         return grantedAuthorities;
     }

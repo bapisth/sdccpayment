@@ -1,6 +1,8 @@
 package com.techsofin.sdccpayment.repository;
 
 import com.techsofin.sdccpayment.entity.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -19,5 +21,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     List<User> findByNameLikeAndUsernameEquals(String name, String username);
 
     List<User> findByNameLikeAndUsernameLike(String name, String username);
+
+    Page<User> findByNameContainingIgnoreCase(String name, Pageable pageable);
 
 }

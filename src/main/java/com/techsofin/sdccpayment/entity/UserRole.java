@@ -1,10 +1,14 @@
 package com.techsofin.sdccpayment.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table(name = "org_user_roles")
-public class UserRole {
+@Table(name = "org_user_role", uniqueConstraints = @UniqueConstraint(columnNames = {"org_user_id", "org_role_id"}))
+public class UserRole implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -12,12 +16,13 @@ public class UserRole {
     @Column
     private String name;
 
-    @Column(name = "active")
-    private Boolean active;
-
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "org_user_id")
     private User user;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "org_role_id", nullable = false)
+    private Role role;
 
     public Integer getId() {
         return id;
@@ -35,11 +40,19 @@ public class UserRole {
         this.name = name;
     }
 
-    public Boolean getActive() {
-        return active;
+    public User getUser() {
+        return user;
     }
 
-    public void setActive(Boolean active) {
-        this.active = active;
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
