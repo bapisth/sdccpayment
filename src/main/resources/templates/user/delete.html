@@ -1,5 +1,5 @@
 <!--/* Thymeleaf templating engine, Each token will be replaced by their respective titles in the resulting page. */-->
-<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{fragments/main_layout}">
 <head>
     <title>Hapus Data</title>
 </head>
@@ -42,9 +42,9 @@
 
                         <div class="form-group">
                             <a th:href="@{/user/list}" class="btn btn-default" role="button" title="Back list">
-                                <span aria-hidden="true"></span>Batal
+                                <span aria-hidden="true"></span>Cancel
                             </a>
-                            <button type="submit" class="btn btn-danger" title="Delete Data">Hapus</button>
+                            <button type="submit" class="btn btn-danger" title="Delete Data">Delete</button>
                         </div>
                     </div>
                     <!-- /.box-body -->
