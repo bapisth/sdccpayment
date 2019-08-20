@@ -1,0 +1,58 @@
+<!--/* Thymeleaf templating engine, Each token will be replaced by their respective titles in the resulting page. */-->
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{fragments/main_layout}">
+<head>
+    <title>Hapus Data</title>
+</head>
+<body>
+<div layout:fragment="breadcrumb">
+    <h1>Erase Customer Data?</h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Erase Customer Data?</li>
+    </ol>
+</div>
+<div layout:fragment="content">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">&nbsp;</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form role="form" th:object="${user}" method="post">
+
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="name">Customer Name</label>
+                            <input type="text"
+                                   th:field="*{name}"
+                                   name="Customer Name" class="form-control" id="name" placeholder="Customer Name" disabled/>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="nama">Mobile Number</label>
+                            <input type="text"
+                                   th:field="*{mobile}"
+                                   name="Mobile Namber" class="form-control" id="Mobile Number" placeholder="Mobile Number"
+                                   disabled/>
+                        </div>
+
+
+                        <div class="form-group">
+                            <a th:href="@{/user/list}" class="btn btn-default" role="button" title="Back list">
+                                <span aria-hidden="true"></span>Cancel
+                            </a>
+                            <button type="submit" class="btn btn-danger" title="Delete Data">Delete</button>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
