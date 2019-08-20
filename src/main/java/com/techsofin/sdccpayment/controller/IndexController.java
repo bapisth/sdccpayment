@@ -3,6 +3,7 @@ package com.techsofin.sdccpayment.controller;
 import com.techsofin.sdccpayment.entity.Collection;
 import com.techsofin.sdccpayment.entity.User;
 import com.techsofin.sdccpayment.repository.CollectionRepository;
+import com.techsofin.sdccpayment.repository.CustomerRepository;
 import com.techsofin.sdccpayment.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,9 @@ public class IndexController {
 
     @Autowired
     private UserRepository userRepository;
+    
+    @Autowired
+    private CustomerRepository customerRepository;
 
     @GetMapping("/")
     public String home(Model model) {
